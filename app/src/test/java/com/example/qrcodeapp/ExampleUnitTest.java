@@ -1,4 +1,4 @@
-package com.example.qr_log_app;
+package com.example.qrcodeapp;
 
 import org.junit.Test;
 
