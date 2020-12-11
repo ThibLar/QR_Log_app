@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChoisirGroupe"
+    android:id="@+id/cadre">
+
+    <TextView
+        android:id="@+id/choix_eleve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cadre"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Choisir un élèves dans la liste"
+        android:textSize="24sp"
+        android:textColor="#469EB8"/>
+
+    <Spinner
+        android:id="@+id/spinner_eleve_absent"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_below="@+id/choix_eleve"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="#469EB8"/>
+
+
+    <TextView
+        android:id="@+id/Autres_eleve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner_eleve_absent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Ajouter un autre élèves"
+        android:textSize="24sp"
+        android:textColor="#469EB8"/>
+
+    <EditText
+        android:id="@+id/ajouter-eleve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Autres_eleve"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="adresse mail de l'élève"
+        android:textColor="#469EB8"/>
+
+    <Button
+        android:id="@+id/eleve_ajouté"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Autres_eleve"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:background="#469EB8"
+        android:text="Terminé"
+        android:textColor="#FFFFFF" />
+
+
+
+    />
+</LinearLayout>
