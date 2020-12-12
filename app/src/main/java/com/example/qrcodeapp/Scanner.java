@@ -31,7 +31,7 @@ public class Scanner extends AppCompatActivity {
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
-
+    String qr_lu = "";
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -124,34 +124,36 @@ public class Scanner extends AppCompatActivity {
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
-                if(qrcodes.size() != 0)
-                {
-                    txtResult.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Create vibrate
+                if(qrcodes.size() != 0) {
+                    if (qr_lu.equals(qrcodes.valueAt(0).displayValue)) { // si le code lu est égal au précédent :
+                                                     // on fait rien
+                        }
+                    else {
+                        qr_lu = qrcodes.valueAt(0).displayValue;
+                        txtResult.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                //Create vibrate
                            /* Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(1000);*/
-                            txtResult.setText(qrcodes.valueAt(0).displayValue);
+                                txtResult.setText(qrcodes.valueAt(0).displayValue);
 
+                                try { ///data/data/com.example.qrcodeapp/files/listelecture.csv
+                                    String file_out = "listelecture.csv";
+                                    FileOutputStream fOut = openFileOutput(file_out, Context.MODE_APPEND);
+                                    String str = qrcodes.valueAt(0).displayValue + "\n";
+                                    fOut.write(str.getBytes());
+                                    /* fini : on ferme le fichier */
+                                    fOut.close();
+                                    //finish();
 
-                            try { ///data/data/com.example.qrcodeapp/files/listelecture.csv
-                                String file_out = "listelecture.csv";
-                                FileOutputStream fOut = openFileOutput(file_out, Context.MODE_APPEND);
-                                String str=qrcodes.valueAt(0).displayValue;
-                                fOut.write(str.getBytes());
-                                /* fini : on ferme le fichier */
-                                fOut.close();
-                                //finish();
-
+                                } catch (Exception e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                                }
                             }
-                            catch (Exception e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                            }
-
-                        }
-                    });
+                        });
+                    }
                 }
             }
         });
