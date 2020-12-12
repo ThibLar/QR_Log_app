@@ -13,7 +13,6 @@
         android:layout_height="60dp"
         android:layout_below="@+id/txtResult"
         android:layout_centerHorizontal="true"
-        android:layout_constraintHorizontal_bias="0.5"
         android:layout_marginTop="75dp"
         android:background="#469EB8"
         android:text="Commencer"
@@ -38,6 +37,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo_perso" />
+        app:srcCompat="@drawable/qr_code_logo" />
     />
 </androidx.constraintlayout.widget.ConstraintLayout>

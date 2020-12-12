@@ -15,7 +15,7 @@
         android:layout_below="@+id/cadre"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:text="Choisi la classe"
+        android:text="Choisir la promotion"
         android:textColor="#469EB8"
         android:textSize="24sp" />
 
@@ -35,7 +35,7 @@
         android:layout_below="@+id/spinnerclass"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Choisi la classe"
+        android:text="Choisir le groupe TD"
         android:textColor="#469EB8"
         android:textSize="24sp" />
 
@@ -70,5 +70,5 @@
         android:text="Terminé"
         android:textColor="#FFFFFF" />
 
-    />
+
 </LinearLayout>
