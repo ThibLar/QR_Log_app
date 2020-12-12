@@ -29,7 +29,7 @@
 
 
     <Button
-        android:id="@+id/buttonP23"
+        android:id="@+id/buttonTerminer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtResult"
@@ -40,10 +40,10 @@
         android:textColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/buttonP21"
+        android:id="@+id/buttonRetour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonP23"
+        android:layout_below="@+id/buttonTerminer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="#469EB8"

@@ -7,32 +7,24 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
-
-public class Accueil extends AppCompatActivity
-{
-private Button mButton01;//boutton de  p0 vers p1
-
+public class Accueil extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        mButton01 = (Button) findViewById(R.id.buttonAccueil);//lien entre XML et Java
-        //Qd on clique sur le bouton de la p0 on va vers la p1
-        mButton01.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                // The user j
-                Intent MenuIntent = new Intent(Accueil.this, ChoisirGroupe.class);
-                startActivity(MenuIntent);
-            }
+        Button mButtonp01 = (Button) findViewById(R.id.buttonfini01);
 
+        mButtonp01.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent lanceActivityIntent = new Intent(Accueil.this, ChoisirGroupe.class);
+                startActivity(lanceActivityIntent);
+            }
         });
     }
+
+
 
 }

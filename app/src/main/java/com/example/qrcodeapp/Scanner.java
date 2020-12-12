@@ -31,8 +31,7 @@ public class Scanner extends AppCompatActivity {
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
-    private Button mButton21;
-    private Button mButton23;
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -57,10 +56,8 @@ public class Scanner extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanner);
-
-
-        mButton23 = (Button) findViewById(R.id.buttonP23);
-        mButton23.setOnClickListener(new View.OnClickListener(){
+        Button buttonEnd = (Button) findViewById(R.id.buttonTerminer);
+        buttonEnd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent lanceActivityIntent = new Intent(Scanner.this, Absent.class);
@@ -68,8 +65,8 @@ public class Scanner extends AppCompatActivity {
             }
         });
 
-        mButton21 = (Button) findViewById(R.id.buttonP21);
-        mButton21.setOnClickListener(new View.OnClickListener(){
+        Button buttonRetour = (Button) findViewById(R.id.buttonRetour);
+        buttonRetour.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent lanceActivityIntent = new Intent(Scanner.this, ChoisirGroupe.class);

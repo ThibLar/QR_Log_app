@@ -1,7 +1,12 @@
 package com.example.qrcodeapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -19,6 +24,17 @@ public class Absent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_absent);
+
+        Button mButtonp42 = (Button) findViewById(R.id.rescanner);
+
+        mButtonp42.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent lanceActivityIntent = new Intent(Absent.this, Scanner.class);
+                startActivity(lanceActivityIntent);
+            }
+        });
+
         ArrayList<String> nomPresents;
         try {
             nomPresents = recupChaine("listelecture.csv");
