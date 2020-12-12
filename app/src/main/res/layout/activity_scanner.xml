@@ -35,7 +35,9 @@
         android:layout_below="@+id/txtResult"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"
-        android:text="@string/terminer" />
+        android:background="#469EB8"
+        android:text="@string/terminer"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonP21"
@@ -43,7 +45,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonP23"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="@string/Retour" />
+        android:layout_marginTop="15dp"
+        android:background="#469EB8"
+        android:text="retour"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

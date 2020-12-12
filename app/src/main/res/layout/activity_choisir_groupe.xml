@@ -1,23 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Accueil">
+    android:orientation="vertical"
+    tools:context=".ChoisirGroupe"
+    android:id="@+id/cadre">
+
+    <TextView
+        android:id="@+id/choix_classe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cadre"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Choisi la classe"
+        android:textColor="#469EB8"
+        android:textSize="24sp" />
+
+    <Spinner
+        android:id="@+id/spinnerclass"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_below="@+id/choix_classe"
+        android:layout_centerHorizontal="true"
+        android:textColor="#469EB8"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/choix_groupe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerclass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Choisi la classe"
+        android:textColor="#469EB8"
+        android:textSize="24sp" />
+
+    <Spinner
+        android:id="@+id/spinnergroupe"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_below="@+id/choix_groupe"
+        android:layout_centerHorizontal="true"
+        android:textColor="#469EB8"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/Autres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnergroupe"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Ajouter une classe"
+        android:textColor="#469EB8"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/buttonP12"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:text="Valider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.8"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Autres"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:background="#469EB8"
+        android:text="Terminé"
+        android:textColor="#FFFFFF" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    />
+</LinearLayout>
