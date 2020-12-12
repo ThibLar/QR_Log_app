@@ -1,0 +1,22 @@
+com/example/qrcodeapp/Envoie.java
+ com.example.qrcodeapp.Envoie
+com/example/qrcodeapp/AjouterManuellement.java
+ com.example.qrcodeapp.AjouterManuellement
+com/example/qrcodeapp/BuildConfig.java
+ com.example.qrcodeapp.BuildConfig
+com/example/qrcodeapp/Absent.java
+ com.example.qrcodeapp.Absent
+ com.example.qrcodeapp.Absent$1
+com/example/qrcodeapp/ChoisirGroupe.java
+ com.example.qrcodeapp.ChoisirGroupe
+ com.example.qrcodeapp.ChoisirGroupe$1
+com/example/qrcodeapp/Accueil.java
+ com.example.qrcodeapp.Accueil
+ com.example.qrcodeapp.Accueil$1
+com/example/qrcodeapp/Scanner.java
+ com.example.qrcodeapp.Scanner
+ com.example.qrcodeapp.Scanner$1
+ com.example.qrcodeapp.Scanner$2
+ com.example.qrcodeapp.Scanner$3
+ com.example.qrcodeapp.Scanner$4
+ com.example.qrcodeapp.Scanner$4$1

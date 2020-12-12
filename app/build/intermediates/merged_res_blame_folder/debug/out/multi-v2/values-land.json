@@ -1,0 +1,53 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\laroc\\AndroidStudioProjects\\QR_Log_app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\laroc\\.gradle\\caches\\transforms-2\\files-2.1\\0963f67003f4b6097da16499c8bbb21b\\jetified-play-services-cast-framework-9.8.0\\res\\values-land\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7",
+                        "startColumns": "0,0,0,0",
+                        "startOffsets": "183,271,358,453",
+                        "endColumns": "87,86,94,90",
+                        "endOffsets": "270,357,452,543"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,8",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "264,356,447,546",
+                        "endColumns": "91,90,98,94",
+                        "endOffsets": "351,442,541,636"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\laroc\\.gradle\\caches\\transforms-2\\files-2.1\\00aef5e07f594e51606d0dff2a4e81e7\\mediarouter-1.0.0-alpha5\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,130,208",
+                        "endColumns": "74,77,74",
+                        "endOffsets": "125,203,278"
+                    },
+                    "to": {
+                        "startLines": "9,10,11",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "641,716,794",
+                        "endColumns": "74,77,74",
+                        "endOffsets": "711,789,864"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\laroc\\.gradle\\caches\\transforms-2\\files-2.1\\780dca39713ff2fcf4eadcaf494ac982\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                }
+            ]
+        }
+    ]
+}
