@@ -12,6 +12,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChoisirGroupe extends AppCompatActivity {
 
@@ -19,7 +21,8 @@ public class ChoisirGroupe extends AppCompatActivity {
     //a string to output the contents of the files to LogCat
     private String output;
     private Resources resources;
-
+    List<String> tab_nom= new ArrayList<>();
+    List<String> tab_groupe=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,15 +46,19 @@ public class ChoisirGroupe extends AppCompatActivity {
         try {
 
             String ligne_lue;
-            String cvsSplitBy = ",";
-            String[] champ1;
+            String cvsSplitBy = ";";
+            String[] ligne;
+
             //Create a InputStream to read the file into
             InputStream iS;
             //create a buffer that has the same size as the InputStream
             BufferedReader reader;
             reader = new BufferedReader(new InputStreamReader(getApplicationContext().getAssets().open(fileName)));
+            reader.readLine(); // on lit la première ligne qu'on ne sauvegarde pas, car c'est le titre du tableau
             while ((ligne_lue = reader.readLine()) != null) {
-                champ1 = ligne_lue.split(cvsSplitBy);
+                ligne = ligne_lue.split(cvsSplitBy);
+                tab_groupe.add(ligne[5]);
+                tab_nom.add(ligne[3]);
                 }
         }
         catch (IOException e)
