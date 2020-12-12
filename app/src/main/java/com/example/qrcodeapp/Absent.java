@@ -70,7 +70,6 @@ public class Absent extends AppCompatActivity {
             while ((line = buff_r.readLine()) != null) {
                 String[] name = line.split(cvsSplitBy);
 
-
                 listAffiche.add(line);
             }
 
