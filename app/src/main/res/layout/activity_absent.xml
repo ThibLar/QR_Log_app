@@ -17,16 +17,11 @@
         android:textAllCaps="false"
         android:textSize="24sp" />
 
-    <ScrollView
+    <ListView
+        android:id="@+id/afficheur"
         android:layout_width="match_parent"
-        android:layout_height="567dp"
-        android:layout_weight="1">
-
-        <ListView
-            android:id="@+id/afficheur"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+        android:layout_height="576dp"
+        android:layout_weight="1" />
 
     <Button
         android:id="@+id/rescanner"
