@@ -20,7 +20,7 @@
         android:textSize="24sp" />
 
     <Spinner
-        android:id="@+id/spinnerclass"
+        android:id="@+id/spinnerpromo"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_below="@+id/choix_classe"
