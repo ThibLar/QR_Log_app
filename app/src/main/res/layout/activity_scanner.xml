@@ -58,7 +58,7 @@
         android:layout_marginTop="500dp"
         android:layout_marginEnd="50dp"
         android:background="#469EB8"
-        android:text="retour"
+        android:text="@string/string_retour"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/buttonTerminer"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="600dp"
         android:layout_marginEnd="175dp"
-        android:text="TextView"
+        android:text="@string/nb_present"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

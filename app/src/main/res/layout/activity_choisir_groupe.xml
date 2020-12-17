@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,10 +11,8 @@
         android:id="@+id/choix_classe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cadre"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:text="Choisir la promotion"
+        android:text="@string/choisir_la_promotion"
         android:textColor="#469EB8"
         android:textSize="24sp" />
 
@@ -23,8 +20,6 @@
         android:id="@+id/spinnerpromo"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:layout_below="@+id/choix_classe"
-        android:layout_centerHorizontal="true"
         android:textColor="#469EB8"
         android:layout_marginTop="15dp" />
 
@@ -32,10 +27,8 @@
         android:id="@+id/choix_groupe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerclass"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Choisir le groupe TD"
+        android:text="@string/choisir_le_groupe_td"
         android:textColor="#469EB8"
         android:textSize="24sp" />
 
@@ -43,8 +36,6 @@
         android:id="@+id/spinnergroupe"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:layout_below="@+id/choix_groupe"
-        android:layout_centerHorizontal="true"
         android:textColor="#469EB8"
         android:layout_marginTop="15dp" />
 
@@ -52,10 +43,8 @@
         android:id="@+id/Autres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnergroupe"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="Ajouter une classe"
+        android:text="@string/ajouter_une_classe"
         android:textColor="#469EB8"
         android:textSize="24sp" />
 
@@ -63,11 +52,9 @@
         android:id="@+id/groupe_choisi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Autres"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:background="#469EB8"
-        android:text="Terminé"
+        android:text="@string/fini"
         android:textColor="#FFFFFF" />
 
 
