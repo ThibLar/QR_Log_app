@@ -1,6 +1,7 @@
 package com.example.qrcodeapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,6 +30,7 @@ public class ChoisirGroupe extends AppCompatActivity implements AdapterView.OnIt
     static String mListeEmail;
     static String[] mListeTD;
     static TextView mtextView;
+    public static int mNombrePersonne;
 
 
 
@@ -67,8 +69,8 @@ public class ChoisirGroupe extends AppCompatActivity implements AdapterView.OnIt
         mButtonp12.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //Intent lanceActivityIntent = new Intent(ChoisirGroupe.this, Scanner.class);
-                //startActivity(lanceActivityIntent);
+                Intent lanceActivityIntent = new Intent(ChoisirGroupe.this, Scanner.class);
+                startActivity(lanceActivityIntent);
             }
         });
     }
@@ -116,6 +118,7 @@ public class ChoisirGroupe extends AppCompatActivity implements AdapterView.OnIt
     {
         //prend en entré le nom du fichier de la promotion dans assets, et le nom du groupe (Cm, TD A, TD B,...)
         // et enregistre un fichier contenant les personnes devant assister au cours
+        mNombrePersonne=0;
         mListeEmail ="";
         BufferedReader reader = null;
         try {
@@ -136,6 +139,7 @@ public class ChoisirGroupe extends AppCompatActivity implements AdapterView.OnIt
                 {
                     if(mGroupeChoisi.equals("TD "+TD))
                     {
+                        mNombrePersonne++;
                         mListeEmail=mListeEmail.concat(email+"\n");
                     }
 
@@ -143,6 +147,7 @@ public class ChoisirGroupe extends AppCompatActivity implements AdapterView.OnIt
                     {
                         if(mGroupeChoisi=="CM")
                         {
+                            mNombrePersonne++;
                             mListeEmail=mListeEmail.concat(email+"\n");
                         }
                     }
@@ -172,7 +177,7 @@ public class ChoisirGroupe extends AppCompatActivity implements AdapterView.OnIt
         catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            mtextView.setText("bug enrigestrement fichier");
+            //mtextView.setText(mListeEmail.length());
         }
     }
 
@@ -219,7 +224,7 @@ public class ChoisirGroupe extends AppCompatActivity implements AdapterView.OnIt
         {
             mGroupeChoisi=item;
             creationGroupe();
-            mtextView.setText(mListeEmail);
+            mtextView.setText("Nombre attendu : "+String.valueOf(mNombrePersonne));
         }
         if(item.charAt(0)=='E')
         {
@@ -240,4 +245,3 @@ public class ChoisirGroupe extends AppCompatActivity implements AdapterView.OnIt
         // TODO Auto-generated method stub
     }
 }
-

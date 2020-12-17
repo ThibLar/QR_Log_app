@@ -21,8 +21,12 @@ import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Scanner extends AppCompatActivity {
 
@@ -32,6 +36,10 @@ public class Scanner extends AppCompatActivity {
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
     String qr_lu = "";
+    TextView compteur;
+    float c=0;
+    float pourcentage;
+    int nb_ligne=0;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -76,6 +84,8 @@ public class Scanner extends AppCompatActivity {
 
         cameraPreview = (SurfaceView) findViewById(R.id.cameraPreview);
         txtResult = (TextView) findViewById(R.id.txtResult);
+        compteur = (TextView) findViewById(R.id.compteur);
+
 
         //String file_in = "listelecture.csv";
 
@@ -115,6 +125,35 @@ public class Scanner extends AppCompatActivity {
             }
         });
 
+        //nombre de personne dans le fichier personneattendu
+        //lire le fichiers des qr code scanner
+        String csvFile = "personnesAttendues.csv";
+        BufferedReader buff_r = null;
+        String line = "";
+
+
+        try {
+
+            //String ligne_lue;
+            //br = new BufferedReader(new FileReader(csvFile));
+            FileInputStream fin = openFileInput(csvFile);
+            DataInputStream in = new DataInputStream(fin);
+            buff_r = new BufferedReader(new InputStreamReader(in));
+            while ((line = buff_r.readLine()) != null)
+            {
+                nb_ligne++;
+            }
+
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }//fin comptage nb personne presente
+
+
+
+
+
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
             @Override
             public void release() {
@@ -138,11 +177,14 @@ public class Scanner extends AppCompatActivity {
                             vibrator.vibrate(1000);*/
                                 txtResult.setText(qrcodes.valueAt(0).displayValue);
 
+
+
                                 try { ///data/data/com.example.qrcodeapp/files/listelecture.csv
                                     String file_out = "listelecture.csv";
                                     FileOutputStream fOut = openFileOutput(file_out, Context.MODE_APPEND);
                                     String str = qrcodes.valueAt(0).displayValue + "\n";
                                     fOut.write(str.getBytes());
+
                                     /* fini : on ferme le fichier */
                                     fOut.close();
                                     //finish();
@@ -151,6 +193,34 @@ public class Scanner extends AppCompatActivity {
                                     // TODO Auto-generated catch block
                                     e.printStackTrace();
                                 }
+
+                                String csvFile2 = "listelecture.csv";
+                                BufferedReader buff_r2 = null;
+                                String line_bis = "";
+
+
+                                try {
+
+                                    //String ligne_lue;
+                                    //br = new BufferedReader(new FileReader(csvFile));
+                                    FileInputStream fin = openFileInput(csvFile2);
+                                    DataInputStream in = new DataInputStream(fin);
+                                    buff_r2 = new BufferedReader(new InputStreamReader(in));
+                                    while ((line_bis = buff_r2.readLine()) != null)
+                                    {
+                                        c++;
+                                        pourcentage= (c/ nb_ligne)*100;
+                                        compteur.setText("Pourcentage de présent = "+pourcentage+" %");
+                                    }
+
+                                }
+                                catch (IOException e)
+                                {
+                                    e.printStackTrace();
+                                }//fin comptage nb personne attendues
+
+
+
                             }
                         });
                     }
