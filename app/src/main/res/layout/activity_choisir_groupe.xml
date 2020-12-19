@@ -55,7 +55,6 @@
         android:layout_below="@+id/spinnergroupe"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="Ajouter une classe"
         android:textColor="#469EB8"
         android:textSize="24sp" />
 

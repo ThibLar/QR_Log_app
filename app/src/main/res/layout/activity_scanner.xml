@@ -27,14 +27,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/txtResult"
+        android:id="@+id/textPourcent"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#469EB8"
+        android:textSize="24sp"/>
+
 
     <Button
         android:id="@+id/buttonTerminer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtResult"
+        android:layout_below="@+id/textPourcent"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="50dp"
         android:background="#469EB8"
         android:text="@string/terminer"
         android:textColor="#FFFFFF" />

@@ -1302,6 +1302,7 @@ id ad_label
 id add
 id adjust_height
 id adjust_width
+id afficheur
 id ajouter_eleve
 id alertTitle
 id all
@@ -1440,7 +1441,6 @@ id line1
 id line3
 id listMode
 id list_item
-id liste_absents
 id live_stream_indicator
 id live_stream_seek_bar
 id loading_indicator
@@ -1591,6 +1591,7 @@ id test
 id text
 id text1
 id text2
+id textPourcent
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textTitle
@@ -1722,6 +1723,7 @@ mipmap ic_logo_ap
 mipmap ic_logo_foreground
 mipmap ic_logo_round
 raw gtm_analytics
+raw validation
 string Retour
 string abc_action_bar_home_description
 string abc_action_bar_up_description
