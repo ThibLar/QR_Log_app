@@ -1,18 +1,8 @@
 <resources>
-    <string name="app_name">QrCodeCamera</string>
+    <string name="app_name">QR Log</string>
     <string name="result_text_default">Please focus camera to QR Code</string>
     <string name="terminer">Terminer</string>
     <string name="okkkkkk">OKKKKKK</string>
     <string name="Retour" />
     <string name="todo">TODO</string>
-    <string name="retour">retour</string>
-    <string name="string_retour" />
-    <string name="nb_present">Pourcentage de présent</string>
-    <string name="liste_des_absents">Liste des absents</string>
-    <string name="rescanner">rescanner des élèves</string>
-    <string name="commencer">Commencer</string>
-    <string name="ajouter_une_classe">Ajouter une classe</string>
-    <string name="fini">Terminé</string>
-    <string name="choisir_la_promotion">Choisir la promotion</string>
-    <string name="choisir_le_groupe_td">Choisir le groupe TD</string>
 </resources>
