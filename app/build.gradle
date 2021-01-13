@@ -34,3 +34,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services:9.8.0'
 
 }
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    }
+}
