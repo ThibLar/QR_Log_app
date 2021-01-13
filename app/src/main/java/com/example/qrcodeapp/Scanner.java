@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
@@ -27,6 +28,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Scanner extends AppCompatActivity {
 
@@ -40,6 +42,7 @@ public class Scanner extends AppCompatActivity {
     float c=0;
     float pourcentage;
     int nb_ligne=0;
+    static public ArrayList<String> listeP;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -64,8 +67,9 @@ public class Scanner extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanner);
-        Button buttonEnd = (Button) findViewById(R.id.buttonTerminer);
-        buttonEnd.setOnClickListener(new View.OnClickListener(){
+
+        Button mButton23 = (Button) findViewById(R.id.buttonTerminer);
+        mButton23.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent lanceActivityIntent = new Intent(Scanner.this, Absent.class);
@@ -73,8 +77,8 @@ public class Scanner extends AppCompatActivity {
             }
         });
 
-        Button buttonRetour = (Button) findViewById(R.id.buttonRetour);
-        buttonRetour.setOnClickListener(new View.OnClickListener(){
+        Button mButton21 = (Button) findViewById(R.id.buttonRetour);
+        mButton21.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent lanceActivityIntent = new Intent(Scanner.this, ChoisirGroupe.class);
@@ -84,10 +88,10 @@ public class Scanner extends AppCompatActivity {
 
         cameraPreview = (SurfaceView) findViewById(R.id.cameraPreview);
         txtResult = (TextView) findViewById(R.id.txtResult);
-        compteur = (TextView) findViewById(R.id.compteur);
+        compteur = (TextView) findViewById(R.id.textPourcent);
 
-
-        //String file_in = "listelecture.csv";
+        pourcentage = (listeP.size()*100)/ChoisirGroupe.listeG.size();
+        compteur.setText("Présence : "+pourcentage+" %");
 
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)
@@ -125,35 +129,6 @@ public class Scanner extends AppCompatActivity {
             }
         });
 
-        //nombre de personne dans le fichier personneattendu
-        //lire le fichiers des qr code scanner
-        String csvFile = "personnesAttendues.csv";
-        BufferedReader buff_r = null;
-        String line = "";
-
-
-        try {
-
-            //String ligne_lue;
-            //br = new BufferedReader(new FileReader(csvFile));
-            FileInputStream fin = openFileInput(csvFile);
-            DataInputStream in = new DataInputStream(fin);
-            buff_r = new BufferedReader(new InputStreamReader(in));
-            while ((line = buff_r.readLine()) != null)
-            {
-                nb_ligne++;
-            }
-
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }//fin comptage nb personne presente
-
-
-
-
-
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
             @Override
             public void release() {
@@ -161,13 +136,16 @@ public class Scanner extends AppCompatActivity {
             }
 
             @Override
-            public void receiveDetections(Detector.Detections<Barcode> detections) {
+            public void receiveDetections(Detector.Detections<Barcode> detections)
+            {
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
-                if(qrcodes.size() != 0) {
+                if(qrcodes.size() != 0)
+                {
                     if (qr_lu.equals(qrcodes.valueAt(0).displayValue)) { // si le code lu est égal au précédent :
-                                                     // on fait rien
-                        }
-                    else {
+                        // on fait rien
+                    }
+                    else
+                        {
                         qr_lu = qrcodes.valueAt(0).displayValue;
                         txtResult.post(new Runnable() {
                             @Override
@@ -177,55 +155,41 @@ public class Scanner extends AppCompatActivity {
                             vibrator.vibrate(1000);*/
                                 txtResult.setText(qrcodes.valueAt(0).displayValue);
 
-
-
-                                try { ///data/data/com.example.qrcodeapp/files/listelecture.csv
-                                    String file_out = "listelecture.csv";
-                                    FileOutputStream fOut = openFileOutput(file_out, Context.MODE_APPEND);
-                                    String str = qrcodes.valueAt(0).displayValue + "\n";
-                                    fOut.write(str.getBytes());
-
-                                    /* fini : on ferme le fichier */
-                                    fOut.close();
-                                    //finish();
-
-                                } catch (Exception e) {
-                                    // TODO Auto-generated catch block
-                                    e.printStackTrace();
-                                }
-
-                                String csvFile2 = "listelecture.csv";
-                                BufferedReader buff_r2 = null;
-                                String line_bis = "";
-
-
-                                try {
-
-                                    //String ligne_lue;
-                                    //br = new BufferedReader(new FileReader(csvFile));
-                                    FileInputStream fin = openFileInput(csvFile2);
-                                    DataInputStream in = new DataInputStream(fin);
-                                    buff_r2 = new BufferedReader(new InputStreamReader(in));
-                                    while ((line_bis = buff_r2.readLine()) != null)
-                                    {
-                                        c++;
-                                        pourcentage= (c/ nb_ligne)*100;
-                                        compteur.setText("Pourcentage de présent = "+pourcentage+" %");
-                                    }
-
-                                }
-                                catch (IOException e)
+                                if(!rechercheStr(qrcodes.valueAt(0).displayValue, listeP))
                                 {
-                                    e.printStackTrace();
-                                }//fin comptage nb personne attendues
+                                    //Ajoute le nom scanner à la liste des présents
+                                    listeP.add(qrcodes.valueAt(0).displayValue);
+                                }
+                                //affiche le % de présence
+                                pourcentage = (listeP.size()*100)/ChoisirGroupe.listeG.size();
+                                compteur.setText("Présence : "+pourcentage+" %");
 
-
+                                MediaPlayer player= MediaPlayer.create(Scanner.this,R.raw.validation);
+                                player.start();
 
                             }
                         });
                     }
                 }
             }
+
         });
+
+
+
+
     }
+
+    public boolean rechercheStr(String str, ArrayList<String> L)
+    //Renvoie True si trouve un string dans une ArrayList
+    {
+        if(L.size()==0){return false;}
+        boolean rep= false;
+        for(int i=0; i<L.size();i++)
+        {
+            if(str.equals(L.get(i))) {rep=true;}
+        }
+        return rep;
+    }
+
 }
