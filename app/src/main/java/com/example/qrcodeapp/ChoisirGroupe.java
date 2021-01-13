@@ -59,6 +59,7 @@ public class ChoisirGroupe extends AppCompatActivity implements AdapterView.OnIt
         try {
             //listePromo = choixPromo();
             listePromo = choixPromoBis();
+
         } catch (IOException e) {
             e.printStackTrace();
             listePromo= new String[]{"erreur"};

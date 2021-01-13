@@ -2,6 +2,7 @@ package com.example.qrcodeapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,12 +12,17 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -42,7 +48,7 @@ public class Absent extends AppCompatActivity {
 
 
         majListeA();
-
+        enregistreListeA();
         TextView absent= (TextView)findViewById(R.id.Aff);
         absent.setText(creationAff());
 
@@ -105,6 +111,40 @@ public class Absent extends AppCompatActivity {
             if(str.equals(L.get(i))) {rep=true;}
         }
         return rep;
+    }
+
+    private void enregistreListeA()
+    {
+        //enregistre la liste des absents sous le format csv dans STockage Interne> Documents> QR_LOG> Absents et au nom "ECAM<n° promo><{E,A}> <TD ou CM>_<date>
+        String path = Environment.getExternalStorageDirectory().toString().concat("/").concat(Environment.DIRECTORY_DOCUMENTS).concat("/QR_LOG/Absents");
+        try
+        {
+
+            String nomFichier=ChoisirGroupe.mPromoChoisie.concat("_").concat(ChoisirGroupe.mGroupeChoisi).concat("_").concat(aujourdhui()).concat(".txt");
+            File file = new File(path.concat(nomFichier));
+
+            // créer le fichier s'il n'existe pas
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            String contenu="";
+            for(int i=0; i<listeA.size();i++)
+            {
+                contenu= contenu.concat(listeA.get(i).concat("/n"));
+            }
+            bw.write(contenu);
+            bw.close();
+        } catch (IOException e) {e.printStackTrace();}
+    }
+
+    public String aujourdhui() {
+        //retourne la date du jour
+        //https://www.developpez.net/forums/d1536724/java/general-java/obtenir-date-jour-format-jour-mois-annee-heure/
+        final Date date = new Date();
+        return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
 
