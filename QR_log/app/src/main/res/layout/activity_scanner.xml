@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.qrcodeapp.Scanner">
+
+    <TextView
+        android:id="@+id/titreP3"
+        android:text="Scan des élèves"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <SurfaceView
+        android:id="@+id/cameraPreview"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/titreP3"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:gravity="center_horizontal"
+        android:text="@string/result_text_default"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textPourcent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textPourcent"
+        app:layout_constraintTop_toBottomOf="@+id/cameraPreview" />
+
+    <TextView
+        android:id="@+id/textPourcent"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:gravity="center_horizontal"
+        android:textColor="#469EB8"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonTerminer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtResult" />
+
+
+    <Button
+        android:id="@+id/buttonTerminer"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:background="#469EB8"
+        android:text="Suivant"
+        android:textSize="24sp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/buttonRetour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.985" />
+
+    <Button
+        android:id="@+id/buttonRetour"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:background="#469EB8"
+        android:text="Retour"
+        android:textSize="24sp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cadre"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChoisirGroupe">
+
+    <TextView
+        android:text="Choix du groupe"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/spinnerpromo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+    <TextView
+        android:id="@+id/choix_classe"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="15dp"
+        android:text="Choisir la promotion"
+        android:textColor="#469EB8"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerpromo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerpromo"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textColor="#469EB8"
+        app:layout_constraintBottom_toTopOf="@+id/choix_groupe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choix_classe" />
+
+    <TextView
+        android:id="@+id/choix_groupe"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Choisir le groupe"
+        android:textColor="#469EB8"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnergroupe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerpromo" />
+
+    <Spinner
+        android:id="@+id/spinnergroupe"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textColor="#469EB8"
+        app:layout_constraintBottom_toTopOf="@+id/nb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choix_groupe" />
+
+    <TextView
+        android:id="@+id/nb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textColor="#469EB8"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/groupe_choisi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnergroupe" />
+
+    <Button
+        android:id="@+id/groupe_choisi"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:background="#469EB8"
+        android:text="Suivant"
+        android:textSize="24sp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
