@@ -1,7 +1,9 @@
 package com.example.qrcodeapp;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -14,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.core.app.ActivityCompat;
 
 
 import java.io.BufferedReader;
@@ -346,4 +348,5 @@ public class ChoisirGroupe extends AppCompatActivity implements AdapterView.OnIt
             {try { reader.close();} catch (IOException e){}  }
         }
     }
+
 }
